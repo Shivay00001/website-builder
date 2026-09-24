@@ -1,50 +1,27 @@
 # Website Builder
 
-An enterprise-grade solution engineered for high performance.
+**Desktop GUI app (tkinter)** — template-based website generator (Business, Portfolio, E-commerce, Blog, Landing Page, Restaurant). Fills in name/description/contact/colors, generates HTML, preview in window or browser, save to file.
 
-![Language](https://img.shields.io/badge/Language-Python-blue)
-![Status](https://img.shields.io/badge/Status-Active-success)
-![License](https://img.shields.io/badge/License-MIT-green)
+## Run
 
-## 🚀 Overview
+The module has no `__main__` launcher — launch it like this:
 
-Welcome to the **Website Builder** repository. This project is built to deliver a robust and scalable solution tailored to modern development standards.
+```bash
+xvfb-run -a python -c "
+import tkinter as tk
+from website_builder import WebsiteBuilder
+root = tk.Tk()
+WebsiteBuilder(root)
+root.mainloop()
+"
+```
 
-## ✨ Features
+## Deps
 
-- **High Performance:** Optimized for speed and efficiency.
-- **Scalable Architecture:** Designed to grow with your needs.
-- **Clean Codebase:** Follows best practices and industry standards.
-- **Secure by Default:** Engineered with security in mind.
+Standard library + tkinter only.
 
-## 🛠️ Prerequisites
+## Notes
 
-Ensure you have the following installed in your environment before proceeding:
-- Appropriate runtime/compiler for `Python`
-- Standard development tools
-
-## 📦 Installation
-
-Follow standard installation steps for `Python` to set up the project locally:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Shivay00001/website-builder.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd website-builder
-   ```
-3. Install dependencies according to the standard `Python` ecosystem.
-
-## 💻 Usage
-
-Run the project using standard execution commands for `Python`. Ensure all environment variables and configurations are set prior to execution.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
-
-## 📝 License
-
-This project is licensed under standard terms.
+- Fixed 2026-09-24: added the missing `generate_restaurant_template` method (was referenced in the template dict but undefined, which crashed the GUI at construction).
+- All 6 templates generate valid HTML — verified programmatically.
+- Desktop app — needs a display; not a web service.

@@ -767,3 +767,64 @@ class WebsiteBuilder:
     </section>
 </body>
 </html>'''
+
+    def generate_restaurant_template(self, data):
+        return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{data['name']} - Restaurant</title>
+    <style>
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{ font-family: 'Georgia', serif; }}
+        .hero {{
+            height: 100vh;
+            background: linear-gradient(135deg, {data['color']} 0%, {data['color']}cc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }}
+        .hero h1 {{ font-size: 4rem; margin-bottom: 1rem; }}
+        .hero p {{ font-size: 1.5rem; margin-bottom: 2rem; max-width: 600px; }}
+        .cta {{
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: white;
+            color: {data['color']};
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }}
+        .features {{
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }}
+        .feature {{
+            text-align: center;
+            padding: 2rem;
+        }}
+        .feature-icon {{ font-size: 3rem; margin-bottom: 1rem; }}
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div>
+            <h1>🍽️ {data['name']}</h1>
+            <p>{data['description']}</p>
+            <a href="mailto:{data['email']}" class="cta">Reserve a Table</a>
+        </div>
+    </section>
+
+    <section class="features">
+        {' '.join([f'<div class="feature"><div class="feature-icon">🍴</div><h3>{f}</h3></div>' for f in data['features']])}
+    </section>
+</body>
+</html>'''
