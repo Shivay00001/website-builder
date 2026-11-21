@@ -1,5 +1,7 @@
 # Website Builder
 
+Built by [VisionQuantech](https://visionquantech.com) — AI agents, apps & tools for small businesses.
+
 **Desktop GUI app (tkinter)** — template-based website generator (Business, Portfolio, E-commerce, Blog, Landing Page, Restaurant). Fills in name/description/contact/colors, generates HTML, preview in window or browser, save to file.
 
 ## Run
